@@ -21,7 +21,7 @@ public interface MstDestinationMapper {
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	long insert(MstDestination mstDestination);
 	
-	@Update("update mst_destination set status=0 where id=#{destinationId}")
+	@Update("update mst_destination set status=0 update_at=now() where id=#{destinationId}")
 	int delete(@Param("destinationId") long destinationId);
 	
 	@Select("SELECT id FROM mst_destination WHERE id=#{id}")
